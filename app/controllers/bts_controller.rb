@@ -3,7 +3,7 @@ class BtsController < ApplicationController
 
   @@sanitizer = BitShares::CallsSanitizer.new
 
-  def index
+  def app
     gon.current_account = current_user
     render :layout => false
   end

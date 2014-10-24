@@ -55,8 +55,9 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  root 'bts#index'
+  root 'welcome#index'
 
+  get '/app' => 'bts#app', as: 'app'
   match '/rpc' => 'bts#rpc', via: [:post]
 
 end

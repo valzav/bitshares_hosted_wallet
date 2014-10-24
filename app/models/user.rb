@@ -7,18 +7,18 @@ class User < ActiveRecord::Base
 
 
   validates :name, presence: true, length: { minimum: 2, maximum: 63}, format: { with: /\A[a-z0-9\.\-]+\z/, message: "only lowercase letters, numbers and . - characters allowed" }
-  validates :password, presence: true, length: { minimum: 3 }
-  validates :password_confirmation, presence: true, length: { minimum: 3 }
+  validates :password, presence: true, length: { minimum: 6 }
+  validates_confirmation_of :password
 
   private
 
   def create_bitshares_account
-
     puts "=== create_bitshares_account === name: #{self.name}"
     #puts BitShares::API::Misc.get_info()
     res = BitShares::API::Wallet.account_create(self.name)
+    BitShares::API::Wallet.account_register(self.name, 'bitsharestestdrive')
+    BitShares::API::Wallet.transfer(200, 'XTS', 'bitsharestestdrive', self.name, 'test drive funds')
     puts res
-
   end
 
 end
