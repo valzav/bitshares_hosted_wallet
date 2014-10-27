@@ -17,3 +17,4 @@
 
 /.idea
 /web_wallet
+config/secrets.yml
