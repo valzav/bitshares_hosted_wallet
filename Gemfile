@@ -45,3 +45,6 @@ gem 'devise'
 gem 'gon'
 gem 'angular_rails_csrf'
 gem 'rack-proxy'
+
+gem 'execjs'
+gem 'therubyracer', :platforms => :ruby
