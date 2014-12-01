@@ -16,8 +16,8 @@ class User < ActiveRecord::Base
     puts "=== create_bitshares_account === name: #{self.name}"
     #puts BitShares::API::Misc.get_info()
     res = BitShares::API::Wallet.account_create(self.name)
-    BitShares::API::Wallet.account_register(self.name, 'bitsharestestdrive')
-    BitShares::API::Wallet.transfer(200, 'XTS', 'bitsharestestdrive', self.name, 'test drive funds')
+    BitShares::API::Wallet.account_register(self.name, 'angel')
+    BitShares::API::Wallet.transfer(200, 'XTS', 'angel', self.name, 'test drive funds')
     puts res
   end
 
