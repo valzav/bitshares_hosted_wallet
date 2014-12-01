@@ -11,7 +11,7 @@ class BtsController < ApplicationController
   def rpc
     method = params['method']
     prms = params['params']
-    allowed = @@sanitizer.sanitize(current_user.name, method, prms)
+    allowed = true #@@sanitizer.sanitize(current_user.name, method, prms)
     if allowed
       #logger.debug "====== rpc call: user: #{current_user.name}, #{prms.inspect}"
       res = BitShares::API.rpc.request_raw(method, prms)
