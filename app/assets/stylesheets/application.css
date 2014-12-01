@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+section.content {
+	margin: 0 20px;
+	overflow-y: auto;
+}

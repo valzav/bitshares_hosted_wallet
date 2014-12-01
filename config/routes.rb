@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  namespace :admin do resources :coupons end
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -59,5 +60,11 @@ Rails.application.routes.draw do
 
   get '/app' => 'bts#app', as: 'app'
   match '/rpc' => 'bts#rpc', via: [:post]
+
+  namespace :api do
+    resources :coupons do
+      get 'redeem'
+    end
+  end
 
 end

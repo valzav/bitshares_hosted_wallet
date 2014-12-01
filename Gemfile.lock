@@ -27,6 +27,10 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    admin_view (0.4.0)
+      kaminari (~> 0.15)
+      rails (~> 4.0)
+      ransack (~> 1.2)
     angular_rails_csrf (1.0.2)
       rails (>= 3, < 5)
     arel (5.0.1.20140414130214)
@@ -67,10 +71,15 @@ GEM
     jbuilder (2.2.3)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
+    jpbuilder (0.2.5)
+      jbuilder
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    kaminari (0.16.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     libv8 (3.16.14.7)
     mail (2.6.1)
       mime-types (>= 1.16, < 3)
@@ -78,7 +87,10 @@ GEM
     minitest (5.4.2)
     multi_json (1.10.1)
     mysql2 (0.3.16)
+    netrc (0.8.0)
     orm_adapter (0.5.0)
+    polyamorous (1.1.0)
+      activerecord (>= 3.0)
     rack (1.5.2)
     rack-proxy (0.5.16)
       rack
@@ -102,12 +114,21 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.3.2)
+    ransack (1.5.1)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      i18n
+      polyamorous (~> 1.1)
     rdoc (4.1.2)
       json (~> 1.4)
     ref (1.0.5)
     request_store (1.1.0)
     responders (1.1.1)
       railties (>= 3.2, < 4.2)
+    rest-client (1.7.2)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -153,6 +174,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  admin_view
   angular_rails_csrf
   authlogic
   coffee-rails (~> 4.0.0)
@@ -160,11 +182,15 @@ DEPENDENCIES
   execjs
   gon
   jbuilder (~> 2.0)
+  jpbuilder
   jquery-rails
+  kaminari
   mysql2
   rack-proxy
   rack-reverse-proxy
   rails (= 4.1.6)
+  ransack
+  rest-client
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   simple_form

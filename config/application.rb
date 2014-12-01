@@ -31,5 +31,8 @@ module Hosted
     config.autoload_paths << Rails.root.join("lib")
     #config.middleware.use "RpcProxy"
     config.action_dispatch.perform_deep_munge = false
+
+    config.action_dispatch.default_headers = { }
+
   end
 end

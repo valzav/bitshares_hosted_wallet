@@ -1,0 +1,58 @@
+<div class="page-header">
+  <h1>
+    Coupon <span class="label label-success"><%= @coupon.code %></span>
+  </h1>
+</div>
+
+<table class="table table-bordered">
+  <tr>
+    <td>Id:</td>
+    <td><%= @coupon.id %></td>
+  </tr>
+  <tr>
+    <td>Code:</td>
+    <td><%= @coupon.code %></td>
+  </tr>
+  <tr>
+    <td>Expires at:</td>
+    <td><%= @coupon.expires_at %></td>
+  </tr>
+  <tr>
+    <td>Redeemed at:</td>
+    <td><%= @coupon.redeemed_at %></td>
+  </tr>
+  <tr>
+    <td>Account name:</td>
+    <td><%= @coupon.account_name %></td>
+  </tr>
+  <tr>
+    <td>Ref coupon:</td>
+    <td><%= @coupon.ref_coupon_id %></td>
+  </tr>
+  <tr>
+    <td>Asset amount:</td>
+    <td><%= @coupon.asset_amount %></td>
+  </tr>
+  <tr>
+    <td>Asset symbol:</td>
+    <td><%= @coupon.asset_symbol %></td>
+  </tr>
+  <tr>
+    <td>Asset precision:</td>
+    <td><%= @coupon.asset_precision %></td>
+  </tr>
+  <tr>
+    <td>Asset blockchainid:</td>
+    <td><%= @coupon.asset_blockchainid %></td>
+  </tr>
+
+  <tr>
+    <td>Actions</td>
+    <td>
+      <%= link_to "Edit", edit_admin_coupon_path(@coupon), :class => "btn btn-default" %>
+      <%= link_to("Delete", admin_coupon_path(@coupon), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "btn btn-danger") %>
+    </td>
+  </tr>
+</table>
+
+<%= link_to('All Coupons', admin_coupons_path) %>

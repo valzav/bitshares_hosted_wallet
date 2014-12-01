@@ -48,3 +48,8 @@ gem 'rack-proxy'
 
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
+gem 'rest-client'
+gem 'jpbuilder'
+gem 'admin_view'
+gem 'ransack'
+gem 'kaminari'
