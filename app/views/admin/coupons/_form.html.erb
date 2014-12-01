@@ -17,8 +17,8 @@
 <div class="form-group">
   <%= f.label :expires_at, :class => "col-sm-2 control-label" %>
   <div class="col-sm-3 input-group">
-    <%= f.text_field :expires_at, :class => "form-control", :placeholder => "" %>
-    <span class="help-block">Example  <b><i><%= Time.now.to_s(:db) %></i></b></span>
+    <%= f.text_field :expires_at, :class => "form-control", :placeholder => "UTC Date Time" %>
+    <span class="help-block">Example  <b><i><%= DateTime.now.utc.to_s(:db) %></i></b></span>
   </div>
 </div>
 

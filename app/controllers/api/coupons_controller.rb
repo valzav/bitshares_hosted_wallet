@@ -4,7 +4,7 @@ module Api
     def show
       @coupon = Coupon.where(code: params[:id]).first
       @coupon = Coupon.new unless @coupon
-      @coupon.set_redeem_code
+      @coupon.coupon_code_valid?
     end
 
     def redeem

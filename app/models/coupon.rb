@@ -16,12 +16,13 @@ class Coupon < ActiveRecord::Base
     self.asset_blockchainid = 0
   end
 
-  def set_redeem_code
+  def coupon_code_valid?
+    return false unless self.code
     res = true
     if self.redeemed_at
       self.code = 'redeemed'
       res = false
-    elsif self.expires_at
+    elsif self.expires_at and self.expires_at < DateTime.now
       self.code = 'expired'
       res = false
     end
@@ -30,7 +31,7 @@ class Coupon < ActiveRecord::Base
 
   def redeem(account_name, public_key)
     logger.debug "--- redeeming coupon code #{self.code}"
-    if set_redeem_code
+    if coupon_code_valid?
 
       #BitShares::API::Wallet.account_create(account_name)
       BitShares::API::Wallet.add_contact_account(account_name, public_key)
