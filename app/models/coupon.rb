@@ -21,13 +21,13 @@ class Coupon < ActiveRecord::Base
     if status() == 'ok'
       BitShares::API::Wallet.add_contact_account(account_name, public_key)
       BitShares::API::Wallet.account_register(account_name, 'angel')
-      BitShares::API::Wallet.transfer(self.amount / asset.precision, asset.symbol, 'angel', account_name, "#{self.code}")
+      BitShares::API::Wallet.transfer(self.amount / asset.precision, asset.symbol, 'angel', account_name, "CPN #{self.code}")
       update_attribute(:redeemed_at, Time.now.to_s(:db))
     end
   end
 
   def generate_code
-    self.code = 'F01-' + SecureRandom.urlsafe_base64(9).upcase
+    self.code = 'F01-' + SecureRandom.urlsafe_base64(8).upcase
   end
 
   def status
