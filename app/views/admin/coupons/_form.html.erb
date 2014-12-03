@@ -9,8 +9,8 @@
 <div class="form-group">
   <%= f.label 'Amount', :class => "col-sm-2 control-label" %>
   <div class="col-sm-3 input-group">
-    <%= f.text_field :asset_amount, :class => "form-control", :placeholder => "0.0" %>
-    <span class="input-group-addon">XTS</span>
+    <%= f.text_field :amount, :class => "form-control", :placeholder => "0.0" %>
+    <span class="input-group-addon"><%= f.select(:asset_id, Asset.all.map{|a| [a.symbol, a.id]}) %></span>
   </div>
 </div>
 

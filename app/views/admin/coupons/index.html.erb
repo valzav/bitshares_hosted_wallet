@@ -16,6 +16,7 @@
 <table class="sortable table table-striped table-bordered table-condensed">
   <thead>
     <tr>
+      <th><%= sortable "id" %></th>
       <th><%= sortable "code" %></th>
       <th><%= sortable "expires_at" %></th>
       <th><%= sortable "redeemed_at" %></th>
@@ -28,11 +29,12 @@
   <tbody>
     <% @coupons.each do |coupon| %>
       <tr class="coupon">
-         <td><%= link_to(coupon.code, admin_coupon_path(coupon)) %></td>
+        <td><%= link_to(coupon.id, admin_coupon_path(coupon)) %></td>
+        <td><%= link_to(coupon.code, admin_coupon_path(coupon)) %></td>
         <td><%= coupon.expires_at %></td>
         <td><%= coupon.redeemed_at %></td>
         <td><%= coupon.account_name %></td>
-        <td><%= coupon.amount %></td>
+        <td><%= coupon.asset_amount %> <%= coupon.asset.symbol %></td>
         <td><%= link_to('Edit', edit_admin_coupon_path(coupon)) %></td>
         <td><%= link_to('Delete', admin_coupon_path(coupon), :confirm => "Are you sure?", :method => :delete) %></td>
       </tr>

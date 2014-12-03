@@ -13,20 +13,27 @@
 
 ActiveRecord::Schema.define(version: 20141128235234) do
 
+  create_table "assets", force: true do |t|
+    t.integer "assetid"
+    t.string  "symbol"
+    t.string  "name"
+    t.string  "description"
+    t.integer "precision"
+  end
+
   create_table "coupons", force: true do |t|
     t.string   "code"
     t.string   "account_name"
     t.integer  "ref_coupon_id"
-    t.integer  "asset_amount",       limit: 8
-    t.string   "asset_symbol"
-    t.integer  "asset_precision"
-    t.integer  "asset_blockchainid"
+    t.integer  "asset_id"
+    t.integer  "amount",        limit: 8
     t.datetime "expires_at"
     t.datetime "redeemed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "coupons", ["asset_id"], name: "index_coupons_on_asset_id", using: :btree
   add_index "coupons", ["code"], name: "index_coupons_on_code", unique: true, using: :btree
   add_index "coupons", ["ref_coupon_id"], name: "index_coupons_on_ref_coupon_id", using: :btree
 

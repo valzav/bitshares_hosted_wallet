@@ -1,0 +1,7 @@
+json.coupon do
+  json.code @coupon.code
+  json.expires_at @coupon.expires_at
+  json.status @coupon.status
+  json.amount @coupon.amount
+  json.asset_id @coupon.asset.assetid
+end

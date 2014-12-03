@@ -65,7 +65,7 @@ class Admin::CouponsController < Admin::BaseController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def coupon_params
-    params.require(:coupon).permit(:code,:expires_at,:redeemed_at,:account_name,:ref_coupon_id,:asset_amount,:asset_symbol,:asset_precision,:asset_blockchainid)
+    params.require(:coupon).permit(:code, :expires_at, :redeemed_at, :account_name, :amount, :ref_coupon_id, :asset, :asset_id)
   end
 
 end
