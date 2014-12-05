@@ -13,11 +13,13 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    app_path
+    #app_path
+    root_path
   end
 
   def after_log_in_path_for(resource)
-    app_path
+    #app_path
+    root_path
   end
 
 end

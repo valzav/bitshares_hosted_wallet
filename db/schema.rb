@@ -11,14 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141128235234) do
+ActiveRecord::Schema.define(version: 20141204150501) do
 
   create_table "assets", force: true do |t|
-    t.integer "assetid"
-    t.string  "symbol"
-    t.string  "name"
-    t.string  "description"
-    t.integer "precision"
+    t.integer  "assetid"
+    t.string   "symbol"
+    t.string   "name"
+    t.string   "description"
+    t.integer  "precision"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "coupons", force: true do |t|
@@ -36,6 +38,17 @@ ActiveRecord::Schema.define(version: 20141128235234) do
   add_index "coupons", ["asset_id"], name: "index_coupons_on_asset_id", using: :btree
   add_index "coupons", ["code"], name: "index_coupons_on_code", unique: true, using: :btree
   add_index "coupons", ["ref_coupon_id"], name: "index_coupons_on_ref_coupon_id", using: :btree
+
+  create_table "identities", force: true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name",                   default: "", null: false

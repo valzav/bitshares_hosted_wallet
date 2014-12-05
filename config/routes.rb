@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
   root 'welcome#index'
-  devise_for :users
+  get '/home', to: 'welcome#home'
+  devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
+
+  devise_scope :user do
+    get 'sign_out', :to => 'devise/sessions#destroy', :as => :sign_out
+  end
 
   namespace :admin do
     resources :coupons

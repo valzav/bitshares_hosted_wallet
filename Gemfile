@@ -38,7 +38,6 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'authlogic'
 gem 'simple_form'
 gem 'rack-reverse-proxy'
 gem 'devise'
@@ -53,3 +52,8 @@ gem 'jpbuilder'
 gem 'admin_view'
 gem 'ransack'
 gem 'kaminari'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-github'
